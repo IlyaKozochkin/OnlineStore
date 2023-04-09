@@ -1,0 +1,16 @@
+﻿@model Product
+
+
+
+<div class="row">
+    <div class="col-md-6">
+        <h2>@Model.Name</h2>
+        <img class="img-thumbnail" src="@Model.Image" alt="@Model.Name" />
+        <p>Цена: @Model.Price руб.</p>
+        @Html.ActionLink("В корзину", "AddOrderItem", new { id = Model.Id }, new { @class = "btn btn-primary" })
+    </div>
+    <div class="col-md-6 col-md-offset-2">
+        <h2>Описание</h2><br />
+        <p>@Model.Description</p>
+    </div>
+</div>

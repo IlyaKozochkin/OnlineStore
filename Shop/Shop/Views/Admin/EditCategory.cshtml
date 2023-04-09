@@ -1,0 +1,19 @@
+﻿@model Shop.Models.Category
+
+
+@{
+    ViewData["Title"] = "Редактирование категории";
+}
+
+<h1>Редактирование категории: @Model.Name</h1>
+
+@using (Html.BeginForm())
+{
+    <p>
+        <label asp-for="Name">Название категории:</label><br />
+        @Html.Editor("Name")
+    </p>
+    <p>
+        <input type="submit" value="Сохранить" />
+    </p>
+}

@@ -1,0 +1,30 @@
+﻿@model List<Product>
+
+@{
+    ViewData["Title"] = "Каталог";
+}
+
+<h1>Все товары</h1>
+
+<body>
+    @Html.ActionLink("Добавить товар", "AddProduct", "Admin", null, new { @class = "btn btn-primary" })
+    <table class="table">
+        <tr>
+            <th></th>
+            <th>Название</th>
+            <th>Категория</th>
+            <th>Цена</th>
+            <th></th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td><img class="img-thumbnail" width="100" src="@item.Image" /></td>
+                <td>@item.Name</td>
+                <td>@item.Category.Name</td>
+                <td>@item.Price</td>
+                <td>@Html.ActionLink("Подробнее", "EditProduct", new { id = item.Id }, new { @class = "btn btn-primary" })</td>
+            </tr>
+        }
+    </table>
+</body>

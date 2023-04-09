@@ -1,0 +1,46 @@
+﻿@model Shop.Models.Product
+
+@{
+    ViewData["Title"] = "Редактирование товара";
+}
+
+<h1>Редактирование товара: @Model.Name</h1>
+
+@using (Html.BeginForm())
+{
+    <p>
+        <label asp-for="Name">Название товара:</label><br />
+        @Html.Editor("Name")
+    </p>
+
+    <p>
+        <label asp-for="Price">Цена:</label><br />
+        @Html.Editor("Price")
+    </p>
+
+    <p>
+        <label asp-for="Description">Описание:</label><br />
+        @Html.Editor("Description")
+    </p>
+
+    <p>
+        <label asp-for="Image">Ссылка на фото:</label><br />
+        @Html.Editor("Image")
+
+    </p>
+
+    <p>
+        <label asp-for="Category">Категория:</label><br />
+        @Html.DropDownList("categoryId", ViewBag.Categories as SelectList)
+
+    </p>
+    <p>
+        <input type="submit" value="Сохранить" />
+    </p>
+    <br />
+    <br />
+    <br />
+
+    <td>@Html.ActionLink("Удалить", "DeleteProduct", new { id = Model.Id }, new { @class = "btn btn-danger" })</td>
+
+}

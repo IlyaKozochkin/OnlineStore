@@ -1,0 +1,138 @@
+﻿@model Shop.Models.Product
+
+@{
+    ViewData["Title"] = "Добавление товара";
+}
+
+<h1>Добавление товара</h1>
+
+<form asp-action="AddProduct" asp-controller="Admin">
+    <p>
+        <label asp-for="Name">Название товара:</label><br />
+        <input size="70" type="text" asp-for="Name" required minlength="3" />
+    </p>
+
+    <p>
+        <label asp-for="Price">Цена:</label><br />
+        <input type="number" asp-for="Price" required />
+    </p>
+
+    <p>
+        <label asp-for="Description">Описание:</label><br />
+        <textarea class="form-control" type="text" asp-for="Description" required minlength="10" rows="8"></textarea>
+    </p>
+
+    <p>
+        <label asp-for="Image">Ссылка на фото:</label><br />
+        <input size="70" type="url" asp-for="Image" required />
+    </p>
+
+    <p>
+        <label asp-for="Category">Категория:</label><br />
+        @Html.DropDownList("categoryId", ViewBag.Categories as SelectList)
+    </p>
+
+
+    <p>
+        <input type="submit" value="Добавить" />
+    </p>
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*<div>
+        <form method="post" enctype="multipart/form-data">
+            <p>Название товара:</p>
+            <p><input name="name" type="text" placeholder="Например: Nike Air Force 1" size="75" required autofocus minlength="10"></p>
+
+            <p>Цена:</p>
+            <p><input name="price" type="number" placeholder="Например: 12999" size="50" required></p>
+
+            <p>Описание:</p>
+
+            <textarea v-model="description1" name="description" class="form-control" rows="5" required minlength="10"
+                      placeholder="">
+                </textarea>
+
+
+
+            <p>Количество:</p>
+            <input name="quantity" type="number" required size="20" />
+
+            <p>Ссылка на изображение:</p>
+            <p><input name="image" type="url" size="75" required minlength="10"></p>
+
+
+
+            <div class="form-group">
+                <div>
+                    <input type="submit" value="Добавить" />
+                </div>
+            </div>
+        </form>
+    </div>*@

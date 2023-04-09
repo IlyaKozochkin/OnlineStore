@@ -1,0 +1,18 @@
+﻿@model Shop.Models.Order
+
+<form asp-action="CreateOrder" asp-controller="Order">
+    <p>
+        <label asp-for="PhoneNumber">Телефон:</label><br />
+        <input type="number" asp-for="PhoneNumber" />
+    </p>
+
+    <p>
+        <label asp-for="Adress">Адрес:</label><br />
+        <input type="text" asp-for="Adress" />
+    </p>
+
+
+    <p>
+        <input type="submit" value="Отправить" />
+    </p>
+</form>

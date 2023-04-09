@@ -1,0 +1,37 @@
+﻿@model List<Order>
+
+@{
+    ViewData["Title"] = "Подтвержденные заказы";
+}
+
+<h1>Подтвержденные заказы</h1>
+
+<body>
+    <table class="table">
+        <tr>
+            <th>Id заказа</th>
+            <th>Имя</th>
+            <th>Фамилия</th>
+            <th>Сумма заказа</th>
+            <th>Адрес</th>
+            <th>Время заказа</th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.FirstName</td>
+                <td>@item.LastName</td>
+                <td>@item.TotalSum руб.</td>
+                <td>@item.Adress</td>
+                <td>@item.dateTime</td>
+                <td>@Html.ActionLink("Подробнее", "InfoOrder", new { id = item.Id }, new { @class = "btn btn-info" })</td>
+                <td>@Html.ActionLink("Заказ отдан", "CompletedOrder", new { id = item.Id }, new { @class = "btn btn-primary" })</td>
+                <td>@Html.ActionLink("Отменить", "DeleteOrder", new { id = item.Id }, new { @class = "btn btn-danger" })</td>
+            </tr>
+        }
+    </table>
+</body>

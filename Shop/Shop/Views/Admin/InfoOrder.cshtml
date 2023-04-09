@@ -1,0 +1,28 @@
+﻿@model List<OrderItem>
+
+@{
+    ViewData["Title"] = "Информация о заказе";
+}
+
+<h1>Информация о заказе</h1>
+
+<body>
+    <table class="table">
+        <tr>
+            <th></th>
+            <th>Название</th>
+            <th>Цена</th>
+            <th></th>
+            <th></th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td><img class="img-thumbnail" width="100" src="@item.Product.Image" /></td>
+                <td>@item.Product.Name</td>
+                <td>@item.Product.Price</td>
+                <td>@Html.ActionLink("Удалить из заказа", "DeleteOrderItems", new { id = item.Id }, new { @class = "btn btn-danger" })</td>
+            </tr>
+        }
+    </table>
+</body>

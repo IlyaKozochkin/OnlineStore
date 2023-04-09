@@ -1,0 +1,19 @@
+﻿@using Shop.Models
+@model Shop.Models.Category
+
+@{
+    ViewData["Title"] = "Добавление категории";
+}
+
+<h1>Добавление категории</h1>
+
+<form asp-action="AddCategory" asp-controller="Admin">
+    <p>
+        <label asp-for="Name">Название категории:</label><br />
+        <input type="text" asp-for="Name" required />
+    </p>
+
+    <p>
+        <input type="submit" value="Добавить" />
+    </p>
+</form>

@@ -1,0 +1,25 @@
+﻿@model List<OrderItem>
+
+<body>
+    <table class="table">
+        <tr>
+            <th></th>
+            <th>Название</th>
+            <th>Цена</th>
+            <th></th>
+
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td><img class="img-thumbnail" width="100" src="@item.Product.Image" /></td>
+                <td>@item.Product.Name</td>
+                <td>@item.Product.Price руб.</td>
+                <td>@Html.ActionLink("Удалить", "DeleteItemCarts", new { id = item.Id }, new { @class = "btn btn-danger" })</td>
+            </tr>
+        }
+    </table>
+
+    @Html.ActionLink("Вернуться в каталог", "Index", "Home", null, new { @class = "btn btn-primary" })
+    <a class="btn btn-warning" href=Order/CreateOrder >Оформить заказ</a>
+</body>
